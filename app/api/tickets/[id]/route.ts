@@ -10,7 +10,7 @@ export async function PATCH(request: NextRequest, { params }: Props) {
   const body = await request.json();
 
   const validation = ticketPatchSchema.safeParse(body);
-  console.log(validation.success);
+
   if (!validation.success) {
     return NextResponse.json(validation.error.format(), { status: 400 });
   }
